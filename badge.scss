@@ -1,0 +1,53 @@
+$badgeSizeNormal: 25px;
+$badgeSizeSmall: 22px;
+
+$badgeWarning: #14892C;
+$badgeInfo: #F6C342;
+$badgeError: #C00;
+
+[class*='badge'] {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-style: normal;
+  display: inline-block;
+  width: $badgeSizeNormal;
+  height: $badgeSizeNormal;
+  padding: .1em 0;
+  margin-right: .5em;
+  border-radius: 50%;
+  margin-top: -0.1em;
+
+  &[class*='top-right'] {
+    $badgeSizeHalf: -(ceil($badgeSizeNormal / 2));
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: $badgeSizeHalf $badgeSizeHalf 0 0;
+  }
+
+  &[class*='small'] {
+    font-size: .9em;
+    width: $badgeSizeSmall;
+    height: $badgeSizeSmall;
+    padding: 0;
+
+    &[class*='top-right'] {
+        $badgeSizeHalf: -(ceil($badgeSizeSmall / 2 - 3));
+        margin: $badgeSizeHalf $badgeSizeHalf 0 0;
+    }
+  }
+
+  &[class*='warning'] {
+      background-color: $badgeWarning;
+  }
+
+  &[class*='error'] {
+      background-color: $badgeError;
+  }
+
+  &[class*='info'] {
+      background-color: $badgeInfo;
+  }
+}
