@@ -1,53 +1,83 @@
+/*
+ * Settings
+ */
 $badgeSizeNormal: 25px;
 $badgeSizeSmall: 22px;
 
+/*
+ * Colors
+ */
 $badgeWarning: #14892C;
 $badgeInfo: #F6C342;
 $badgeError: #C00;
 
 [class*='badge'] {
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  font-style: normal;
-  display: inline-block;
-  width: $badgeSizeNormal;
-  height: $badgeSizeNormal;
-  padding: .1em 0;
-  margin-right: .5em;
-  border-radius: 50%;
-  margin-top: -0.1em;
+   position: relative;
 
-  &[class*='top-right'] {
-    $badgeSizeHalf: -(ceil($badgeSizeNormal / 2));
-
+  /*
+   * Base
+   */
+  &[data-badge]:after {
+    color: #fff;
+    content: attr(data-badge);
+    text-align: center;
+    text-decoration: none;
+    font-style: normal;
     position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+    width: $badgeSizeNormal;
+    height: $badgeSizeNormal;
+    padding: .1em 0;
+  }
+
+  /*
+   * hide empty badge
+   */
+  &[data-badge='']:after {
+    content: none;
+  }
+
+  /*
+   * Positions
+   */
+  &[class*='top-right']:after {
+    $badgeSizeHalf: -(ceil($badgeSizeNormal / 2));
     top: 0;
     right: 0;
     margin: $badgeSizeHalf $badgeSizeHalf 0 0;
   }
 
-  &[class*='small'] {
+  &[class*='top-left']:after {
+    $badgeSizeHalf: -(ceil($badgeSizeNormal / 2));
+    top: 0;
+    left: 0;
+    margin: $badgeSizeHalf $badgeSizeHalf 0 0;
+  }
+
+  /*
+   * Coloring
+   */
+  &[class*='warning']:after {
+      background-color: $badgeWarning;
+  }
+
+  &[class*='error']:after {
+      background-color: $badgeError;
+  }
+
+  &[class*='info']:after {
+      background-color: $badgeInfo;
+  }
+
+  /*
+   * Size
+   */
+  &[class*='small']:after {
     font-size: .9em;
     width: $badgeSizeSmall;
     height: $badgeSizeSmall;
     padding: 0;
-
-    &[class*='top-right'] {
-        $badgeSizeHalf: -(ceil($badgeSizeSmall / 2 - 3));
-        margin: $badgeSizeHalf $badgeSizeHalf 0 0;
-    }
   }
 
-  &[class*='warning'] {
-      background-color: $badgeWarning;
-  }
-
-  &[class*='error'] {
-      background-color: $badgeError;
-  }
-
-  &[class*='info'] {
-      background-color: $badgeInfo;
-  }
 }

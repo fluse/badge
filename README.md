@@ -1,7 +1,7 @@
 # Badge
 
-an sass generated badge
+an sass generated pure css html badge
 
-´´´html
-<i class="badge">1</i>
-´´´
+```markup
+<button class="badge-warning" data-badge="6">Badge Example</button>
+```
