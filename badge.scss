@@ -1,8 +1,8 @@
 /*
  * Settings
  */
-$badgeSizeNormal: 25px;
-$badgeSizeSmall: 22px;
+$badgeSizeNormal: 18px;
+$badgeSizeSmall: 16px;
 
 /*
  * Colors
@@ -23,12 +23,11 @@ $badgeError: #C00;
     text-align: center;
     text-decoration: none;
     font-style: normal;
-    position: absolute;
     display: inline-block;
-    border-radius: 50%;
     width: $badgeSizeNormal;
     height: $badgeSizeNormal;
-    padding: .1em 0;
+    line-height: $badgeSizeNormal;
+    border-radius: 50%;
   }
 
   /*
@@ -41,8 +40,18 @@ $badgeError: #C00;
   /*
    * Positions
    */
+
+  &[class*='right']:after {
+    float: right;
+  }
+
+  &[class*='left']:after {
+    float: left;
+  }
+
   &[class*='top-right']:after {
     $badgeSizeHalf: -(ceil($badgeSizeNormal / 2));
+    position: absolute;
     top: 0;
     right: 0;
     margin: $badgeSizeHalf $badgeSizeHalf 0 0;
@@ -50,6 +59,7 @@ $badgeError: #C00;
 
   &[class*='top-left']:after {
     $badgeSizeHalf: -(ceil($badgeSizeNormal / 2));
+    position: absolute;
     top: 0;
     left: 0;
     margin: $badgeSizeHalf $badgeSizeHalf 0 0;

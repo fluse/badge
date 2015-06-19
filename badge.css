@@ -27,22 +27,27 @@
     text-align: center;
     text-decoration: none;
     font-style: normal;
-    position: absolute;
     display: inline-block;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    padding: .1em 0; }
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 50%; }
   [class*='badge'][data-badge='']:after {
     content: none; }
+  [class*='badge'][class*='right']:after {
+    float: right; }
+  [class*='badge'][class*='left']:after {
+    float: left; }
   [class*='badge'][class*='top-right']:after {
+    position: absolute;
     top: 0;
     right: 0;
-    margin: -13px -13px 0 0; }
+    margin: -9px -9px 0 0; }
   [class*='badge'][class*='top-left']:after {
+    position: absolute;
     top: 0;
     left: 0;
-    margin: -13px -13px 0 0; }
+    margin: -9px -9px 0 0; }
   [class*='badge'][class*='warning']:after {
     background-color: #14892C; }
   [class*='badge'][class*='error']:after {
@@ -51,6 +56,6 @@
     background-color: #F6C342; }
   [class*='badge'][class*='small']:after {
     font-size: .9em;
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
     padding: 0; }
